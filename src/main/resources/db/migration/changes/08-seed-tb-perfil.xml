@@ -1,0 +1,24 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<databaseChangeLog
+        xmlns="http://www.liquibase.org/xml/ns/dbchangelog"
+        xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+        xsi:schemaLocation="http://www.liquibase.org/xml/ns/dbchangelog
+                      http://www.liquibase.org/xml/ns/dbchangelog/dbchangelog-4.25.xsd"
+        objectQuotingStrategy="QUOTE_ONLY_RESERVED_WORDS">
+
+    <changeSet id="08" author="admin">
+        <insert schemaName="sedec_sipaflore_mt" tableName="tb_perfil_usuario">
+            <column name="descricao" value="USUARIO_PADRAO"/>
+            <column name="codigo" value="USER"/>
+        </insert>
+        <insert schemaName="sedec_sipaflore_mt" tableName="tb_perfil_usuario">
+            <column name="descricao" value="ANALISTA_SEDEC"/>
+            <column name="codigo" value="MANAGER"/>
+        </insert>
+        <insert schemaName="sedec_sipaflore_mt" tableName="tb_perfil_usuario">
+            <column name="descricao" value="ADMINISTRADOR"/>
+            <column name="codigo" value="ADMIN"/>
+        </insert>
+    </changeSet>
+
+</databaseChangeLog>

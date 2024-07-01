@@ -1,0 +1,50 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<databaseChangeLog
+        xmlns="http://www.liquibase.org/xml/ns/dbchangelog"
+        xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+        xsi:schemaLocation="http://www.liquibase.org/xml/ns/dbchangelog
+                      http://www.liquibase.org/xml/ns/dbchangelog/dbchangelog-4.25.xsd"
+        objectQuotingStrategy="QUOTE_ONLY_RESERVED_WORDS">
+
+    <changeSet id="14" author="admin">
+        <createTable schemaName="sedec_sipaflore_mt" tableName="tb_doc_autorizacao">
+            <column autoIncrement="true" name="id" type="BIGINT">
+                <constraints nullable="false" primaryKey="true" primaryKeyName="pk_doc_autorizacao"/>
+            </column>
+            <column name="id_papel_usuario_doc_autorizacao" type="BIGINT">
+                <constraints referencedTableSchemaName="sedec_sipaflore_mt" referencedTableName="tb_papel_usuario_doc_autorizacao"
+                             foreignKeyName="fk_doc_autorizacao_01" referencedColumnNames="id" nullable="false"/>
+            </column>
+            <column name="id_tipo_doc_autorizacao" type="BIGINT">
+                <constraints referencedTableSchemaName="sedec_sipaflore_mt" referencedTableName="tb_tipo_doc_autorizacao"
+                             foreignKeyName="fk_doc_autorizacao_02" referencedColumnNames="id" nullable="false"/>
+            </column>
+            <column name="id_usuario" type="BIGINT">
+                <constraints referencedTableSchemaName="sedec_sipaflore_mt" referencedTableName="tb_usuario"
+                             foreignKeyName="fk_doc_autorizacao_03" referencedColumnNames="id" nullable="false"/>
+            </column>
+            <column name="id_arquivo" type="BIGINT">
+                <constraints referencedTableSchemaName="sedec_sipaflore_mt" referencedTableName="tb_arquivo"
+                             foreignKeyName="fk_doc_autorizacao_04" referencedColumnNames="id" nullable="false"/>
+            </column>
+            <column name="cpf_ou_cnpj_da_outra_parte" type="VARCHAR(255)">
+                <constraints nullable="false"/>
+            </column>
+            <column name="data_inicio" type="DATE">
+                <constraints nullable="false"/>
+            </column>
+            <column name="data_final" type="DATE"/>
+            <column name="ativo" type="TINYINT" defaultValue="1">
+                <constraints nullable="false"/>
+            </column>
+            <column name="desabilitado" type="TINYINT" defaultValue="1">
+                <constraints nullable="false"/>
+            </column>
+            <column name="justificativa_indeferimento" type="TEXT"/>
+            <column name="poderes" type="TEXT">
+                <constraints nullable="false"/>
+            </column>
+        </createTable>
+    </changeSet>
+
+</databaseChangeLog>

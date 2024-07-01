@@ -1,0 +1,48 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<databaseChangeLog
+        xmlns="http://www.liquibase.org/xml/ns/dbchangelog"
+        xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+        xsi:schemaLocation="http://www.liquibase.org/xml/ns/dbchangelog
+                      http://www.liquibase.org/xml/ns/dbchangelog/dbchangelog-4.25.xsd"
+        objectQuotingStrategy="QUOTE_ONLY_RESERVED_WORDS">
+
+    <changeSet id="05" author="admin">
+        <createTable schemaName="sedec_sipaflore_mt" tableName="tb_info_pessoal">
+            <column autoIncrement="true" name="id" type="BIGINT">
+                <constraints nullable="false" primaryKey="true" primaryKeyName="pk_info_pessoal"/>
+            </column>
+            <column name="id_usuario" type="BIGINT">
+                <constraints referencedTableSchemaName="sedec_sipaflore_mt" referencedTableName="tb_usuario"
+                             foreignKeyName="fk_info_pessoal_01" referencedColumnNames="id" nullable="false"/>
+            </column>
+            <column name="id_municipio" type="BIGINT">
+                <constraints referencedTableSchemaName="sedec_sipaflore_mt" referencedTableName="tb_municipio"
+                             foreignKeyName="fk_info_pessoal_02" referencedColumnNames="id" nullable="false"/>
+            </column>
+            <column name="id_arquivo" type="BIGINT">
+                <constraints referencedTableSchemaName="sedec_sipaflore_mt" referencedTableName="tb_arquivo"
+                             foreignKeyName="fk_info_pessoal_03" referencedColumnNames="id" nullable="false"/>
+            </column>
+            <column name="nome_ou_razao_social" type="VARCHAR(255)">
+                    <constraints nullable="false"/>
+            </column>
+            <column name="cpf_ou_cnpj" type="VARCHAR(255)">
+                <constraints nullable="false"/>
+            </column>
+            <column name="cep" type="VARCHAR(255)">
+                <constraints nullable="false"/>
+            </column>
+            <column name="logradouro" type="VARCHAR(255)">
+                <constraints nullable="false"/>
+            </column>
+            <column name="numero" type="VARCHAR(255)">
+                <constraints nullable="false"/>
+            </column>
+            <column name="complemento" type="VARCHAR(255)"/>
+            <column name="telefone" type="VARCHAR(255)">
+                <constraints nullable="false"/>
+            </column>
+        </createTable>
+    </changeSet>
+
+</databaseChangeLog>

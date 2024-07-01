@@ -1,0 +1,32 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<databaseChangeLog
+        xmlns="http://www.liquibase.org/xml/ns/dbchangelog"
+        xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+        xsi:schemaLocation="http://www.liquibase.org/xml/ns/dbchangelog
+                      http://www.liquibase.org/xml/ns/dbchangelog/dbchangelog-4.25.xsd"
+        objectQuotingStrategy="QUOTE_ONLY_RESERVED_WORDS">
+
+    <changeSet id="28" author="admin">
+        <insert schemaName="sedec_sipaflore_mt" tableName="tb_status_certificado">
+            <column name="descricao" value="EM CONSTRUÇÃO"/>
+            <column name="codigo" value="EM_CONSTRUCAO"/>
+        </insert>
+        <insert schemaName="sedec_sipaflore_mt" tableName="tb_status_certificado">
+            <column name="descricao" value="CONCLUÍDO"/>
+            <column name="codigo" value="CONCLUIDO"/>
+        </insert>
+        <insert schemaName="sedec_sipaflore_mt" tableName="tb_status_certificado">
+            <column name="descricao" value="CONCLUÍDO E COM TAXAS PAGAS"/>
+            <column name="codigo" value="CONCLUIDO_TAXAS_PAGAS"/>
+        </insert>
+        <insert schemaName="sedec_sipaflore_mt" tableName="tb_status_certificado">
+            <column name="descricao" value="EXCLUÍDO"/>
+            <column name="codigo" value="EXCLUIDO"/>
+        </insert>
+        <insert schemaName="sedec_sipaflore_mt" tableName="tb_status_certificado">
+            <column name="descricao" value="EM FASE DE CORREÇÃO"/>
+            <column name="codigo" value="EM_FASE_CORRECAO"/>
+        </insert>
+    </changeSet>
+
+</databaseChangeLog>

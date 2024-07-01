@@ -1,0 +1,31 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<databaseChangeLog
+        xmlns="http://www.liquibase.org/xml/ns/dbchangelog"
+        xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+        xsi:schemaLocation="http://www.liquibase.org/xml/ns/dbchangelog
+                      http://www.liquibase.org/xml/ns/dbchangelog/dbchangelog-4.25.xsd"
+        objectQuotingStrategy="QUOTE_ONLY_RESERVED_WORDS">
+
+    <changeSet id="aud-07" author="admin">
+        <createTable schemaName="sedec_sipaflore_mt_aud" tableName="tb_usuario_has_perfil_usuario_aud">
+            <column name="rev" type="BIGINT">
+                <constraints referencedTableSchemaName="sedec_sipaflore_mt_aud" referencedTableName="revinfo"
+                             foreignKeyName="fk_usuario_has_perfil_usuario_aud_01" referencedColumnNames="rev" nullable="false"/>
+            </column>
+            <column name="revtype" type="TINYINT">
+                <constraints nullable="false"/>
+            </column>
+            <column name="revend" type="BIGINT">
+                <constraints  referencedTableSchemaName="sedec_sipaflore_mt_aud" referencedTableName="revinfo"
+                              foreignKeyName="fk_usuario_has_perfil_usuario_aud_02" referencedColumnNames="rev"/>
+            </column>
+            <column name="revend_timestamp" type="TIMESTAMP"/>
+            <column name="id_usuario" type="BIGINT"/>
+            <column name="id_perfil_usuario" type="BIGINT"/>
+        </createTable>
+
+        <addPrimaryKey schemaName="sedec_sipaflore_mt_aud" tableName="tb_usuario_has_perfil_usuario_aud"
+                       columnNames="rev, id_usuario, id_perfil_usuario" constraintName="pk_usuario_has_perfil_usuario_aud"/>
+    </changeSet>
+
+</databaseChangeLog>

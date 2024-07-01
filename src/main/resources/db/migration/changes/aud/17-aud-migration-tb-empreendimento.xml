@@ -1,0 +1,42 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<databaseChangeLog
+        xmlns="http://www.liquibase.org/xml/ns/dbchangelog"
+        xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+        xsi:schemaLocation="http://www.liquibase.org/xml/ns/dbchangelog
+                      http://www.liquibase.org/xml/ns/dbchangelog/dbchangelog-4.25.xsd"
+        objectQuotingStrategy="QUOTE_ONLY_RESERVED_WORDS">
+
+    <changeSet id="aud-17" author="admin">
+        <createTable schemaName="sedec_sipaflore_mt_aud" tableName="tb_empreendimento_aud">
+            <column name="rev" type="BIGINT">
+                <constraints referencedTableSchemaName="sedec_sipaflore_mt_aud" referencedTableName="revinfo"
+                             foreignKeyName="fk_empreendimento_aud_01" referencedColumnNames="rev" nullable="false"/>
+            </column>
+            <column name="revtype" type="TINYINT">
+                <constraints nullable="false"/>
+            </column>
+            <column name="revend" type="BIGINT">
+                <constraints  referencedTableSchemaName="sedec_sipaflore_mt_aud" referencedTableName="revinfo"
+                              foreignKeyName="fk_empreendimento_aud_02" referencedColumnNames="rev"/>
+            </column>
+            <column name="revend_timestamp" type="TIMESTAMP"/>
+
+            <column name="id" type="BIGINT">
+                <constraints nullable="false"/>
+            </column>
+            <column name="id_usuario" type="BIGINT"/>
+            <column name="id_municipio" type="BIGINT"/>
+            <column name="id_tipo_identificacao_empreendimento" type="BIGINT"/>
+            <column name="id_status_empreendimento" type="BIGINT"/>
+            <column name="nome" type="VARCHAR(255)"/>
+            <column name="cpf_ou_cnpj" type="VARCHAR(255)"/>
+            <column name="area_em_hectares" type="DECIMAL(40, 4)"/>
+            <column name="cadastro_cc_sema" type="VARCHAR(255)"/>
+            <column name="ativo" type="TINYINT"/>
+        </createTable>
+
+        <addPrimaryKey schemaName="sedec_sipaflore_mt_aud" tableName="tb_empreendimento_aud"
+                       columnNames="rev, id" constraintName="pk_empreendimento_aud"/>
+    </changeSet>
+
+</databaseChangeLog>

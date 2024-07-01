@@ -1,0 +1,29 @@
+version: '3.8'
+
+services:
+  mysql-sipaflore:
+    image: mysql:8.0
+    container_name: mysql-sipaflore
+    restart: always
+    environment:
+      MYSQL_ROOT_PASSWORD: 'RSj4K3TnkD2XLlhu85ZXt7D'
+      MYSQL_USER: sedec_sipaflore_mt
+      MYSQL_PASSWORD: RSj4K3TnkD2XLlhu85ZXt7D
+      MYSQL_DATABASE: sedec_sipaflore_mt
+    ports:
+      - "3306:3306"
+    networks:
+      - sipaflore
+    command: >
+      bash -c "
+        echo 'CREATE DATABASE IF NOT EXISTS sedec_sipaflore_mt;' > /docker-entrypoint-initdb.d/init.sql &&
+        echo 'CREATE DATABASE IF NOT EXISTS sedec_sipaflore_mt_aud;' >> /docker-entrypoint-initdb.d/init.sql &&
+        docker-entrypoint.sh mysqld --bind-address=0.0.0.0 --user=root --default-authentication-plugin=mysql_native_password
+      "
+
+networks:
+  sipaflore:
+    driver: bridge
+
+volumes:
+  sipaflore:

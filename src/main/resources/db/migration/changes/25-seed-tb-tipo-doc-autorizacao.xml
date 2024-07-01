@@ -1,0 +1,43 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<databaseChangeLog
+        xmlns="http://www.liquibase.org/xml/ns/dbchangelog"
+        xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+        xsi:schemaLocation="http://www.liquibase.org/xml/ns/dbchangelog
+                      http://www.liquibase.org/xml/ns/dbchangelog/dbchangelog-4.25.xsd"
+        objectQuotingStrategy="QUOTE_ONLY_RESERVED_WORDS">
+
+    <changeSet id="25" author="admin">
+        <insert schemaName="sedec_sipaflore_mt" tableName="tb_tipo_doc_autorizacao">
+            <column name="descricao" value="Procuração"/>
+            <column name="codigo" value="PROCURACAO"/>
+            <column name="descricao_longa" value="Procuração com poderes específicos para representar o requerente junto à SEDEC, com firma reconhecida;"/>
+        </insert>
+        <insert schemaName="sedec_sipaflore_mt" tableName="tb_tipo_doc_autorizacao">
+            <column name="descricao" value="Procuração simples para advogado"/>
+            <column name="codigo" value="PROCURACAO_SIMPLES_ADVOGADO"/>
+            <column name="descricao_longa" value="Em caso de advogado, anexar procuração simples com poderes para representar junto à SEDEC, contendo endereço profissional e cópia da OAB."/>
+        </insert>
+        <insert schemaName="sedec_sipaflore_mt" tableName="tb_tipo_doc_autorizacao">
+            <column name="descricao" value="Ata de eleição dos administradores registrada na Junta Comercial"/>
+            <column name="codigo" value="ATA_ELEICAO_ADM_JUNTA_COMERCIAL"/>
+        </insert>
+        <insert schemaName="sedec_sipaflore_mt" tableName="tb_tipo_doc_autorizacao">
+            <column name="descricao" value="Ato de nomeação do titular devidamente publicado no Diário Oficial"/>
+            <column name="codigo" value="ATO_NOMEACAO_TITULAR_DIARIO_OFICIAL"/>
+        </insert>
+        <insert schemaName="sedec_sipaflore_mt" tableName="tb_tipo_doc_autorizacao">
+            <column name="descricao" value="Identificação de representante da empresa"/>
+            <column name="codigo" value="IDENTIFICACAO_REPRESENTANTE_EMPRESA"/>
+            <column name="descricao_longa" value="Identificação do representante da empresa (os atos constitutivos devem apontar poderes para o representante)"/>
+        </insert>
+        <insert schemaName="sedec_sipaflore_mt" tableName="tb_tipo_doc_autorizacao">
+            <column name="descricao" value="Documentos do representante do espólio (inventariante)"/>
+            <column name="codigo" value="DOCUMENTO_REPRESENTANTE_ESPOLIO"/>
+        </insert>
+        <insert schemaName="sedec_sipaflore_mt" tableName="tb_tipo_doc_autorizacao">
+            <column name="descricao" value="OUTRO"/>
+            <column name="codigo" value="OUTRO"/>
+        </insert>
+    </changeSet>
+
+</databaseChangeLog>

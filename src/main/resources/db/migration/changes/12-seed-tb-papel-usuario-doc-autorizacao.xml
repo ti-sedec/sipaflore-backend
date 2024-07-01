@@ -1,0 +1,20 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<databaseChangeLog
+        xmlns="http://www.liquibase.org/xml/ns/dbchangelog"
+        xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+        xsi:schemaLocation="http://www.liquibase.org/xml/ns/dbchangelog
+                      http://www.liquibase.org/xml/ns/dbchangelog/dbchangelog-4.25.xsd"
+        objectQuotingStrategy="QUOTE_ONLY_RESERVED_WORDS">
+
+    <changeSet id="12" author="admin">
+        <insert schemaName="sedec_sipaflore_mt" tableName="tb_papel_usuario_doc_autorizacao">
+            <column name="descricao" value="Outorgante"/>
+            <column name="codigo" value="OUTORGANTE"/>
+        </insert>
+        <insert schemaName="sedec_sipaflore_mt" tableName="tb_papel_usuario_doc_autorizacao">
+            <column name="descricao" value="Outorgado"/>
+            <column name="codigo" value="OUTORGADO"/>
+        </insert>
+    </changeSet>
+
+</databaseChangeLog>

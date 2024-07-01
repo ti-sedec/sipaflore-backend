@@ -1,0 +1,67 @@
+version: '3.8'
+
+services:
+  mysql-sipaflore:
+    image: mysql:8.0
+    container_name: mysql-sipaflore
+    restart: always
+    environment:
+      MYSQL_ROOT_PASSWORD: 'RSj4K3TnkD2XLlhu85ZXt7D'
+      MYSQL_USER: sedec_user
+      MYSQL_PASSWORD: RSj4K3TnkD2XLlhu85ZXt7D
+      MYSQL_DATABASE: sedec_sipaflore_mt
+    ports:
+      - "3306:3306"
+    networks:
+      - sipaflore
+    command: >
+      bash -c "
+        echo 'CREATE DATABASE IF NOT EXISTS sedec_sipaflore_mt;' > /docker-entrypoint-initdb.d/init.sql &&
+        echo 'CREATE DATABASE IF NOT EXISTS sedec_sipaflore_mt_aud;' >> /docker-entrypoint-initdb.d/init.sql &&
+        docker-entrypoint.sh mysqld --bind-address=0.0.0.0 --user=root --default-authentication-plugin=mysql_native_password
+      "
+  api-sipaflore:
+    image: tisedec/sipaflore-spring-api:0.0.1
+    environment:
+      - SPRING_PROFILES_ACTIVE=prod
+      - APPLICATION_ALLOWED_ORIGINS=https://sipaflore-homologacao.sedec.mt.gov.br
+      - SPRING_DATASOURCE_URL=jdbc:mysql://mysql-sipaflore:3306/sedec_sipaflore_mt
+      - SPRING_DATASOURCE_USERNAME=root
+      - SPRING_DATASOURCE_PASSWORD=RSj4K3TnkD2XLlhu85ZXt7D
+      - EMAIL_HOST=smtp.gmail.com
+      - EMAIL_PORT=587
+      - EMAIL_USERNAME=sipaflore.sedec.mt@gmail.com
+      - EMAIL_PASSWORD="=Q/31.s6G:Ym"
+      - EMAIL_PROTOCOL=smtp
+      - EMAIL_DEBUG=true
+      - AUTH_JWKS_URI=https://hml.login.mt.gov.br/auth/realms/mt-realm/
+      - AUTH_INTROSPECT_URI=https://hml.login.mt.gov.br/auth/realms/mt-realm/protocol/openid-connect/userinfo
+    container_name: api-sipaflore
+    ports:
+      - "8082:8083" 
+    networks:
+      - sipaflore
+    depends_on:
+      - mysql-sipaflore
+    restart: on-failure:10
+
+#  frontend-sipaflore:
+#    image: tisedec/sipaflore-web:0.0.3
+#    environment:
+#    - PARAMETROS_BASE=http://localhost:8085/api,https://dev.login.mt.gov.br/auth/realms/mt-realm/protocol/openid-connect/token,http://localhost:3000,projeto-template-integracao
+#    - PARAMETROS_SUBSTITUICAO=https://api.sipaflore-homologacao.sedec.mt.gov.br,https://dev.login.mt.gov.br/auth/realms/mt-realm/protocol/openid-connect/token,https://sipaflore-homologacao.sedec.mt.gov.br,projeto-template-integracao
+#    container_name: frontend-sipaflore
+#    ports:
+#      - "4201:80"
+#    networks:
+#      - sipaflore
+#    restart: on-failure:10
+
+networks:
+  sipaflore:
+    driver: bridge
+
+volumes:
+  sipaflore: 
+
+

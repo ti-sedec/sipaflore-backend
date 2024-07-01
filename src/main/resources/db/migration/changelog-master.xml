@@ -1,0 +1,56 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<databaseChangeLog
+        xmlns="http://www.liquibase.org/xml/ns/dbchangelog"
+        xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+        xsi:schemaLocation="http://www.liquibase.org/xml/ns/dbchangelog http://www.liquibase.org/xml/ns/dbchangelog/dbchangelog-3.1.xsd">
+
+    <!--    Variables    -->
+    <property name="NOW" value="now()" dbms="mysql,postgresql"/>
+    <property name="FILE" value="blob" dbms="mysql"/>
+    <property name="FILE" value="bytea" dbms="postgresql"/>
+
+    <!--    Migrations and seeds    -->
+    <include file="db/migration/changes/01-migration-tb-usuario.xml"/>
+    <include file="db/migration/changes/02-migration-tb-estado.xml"/>
+    <include file="db/migration/changes/03-migration-tb-municipio.xml"/>
+    <include file="db/migration/changes/04-migration-tb-arquivo.xml"/>
+    <include file="db/migration/changes/05-migration-tb-info-pessoal.xml"/>
+    <include file="db/migration/changes/06-migration-tb-perfil-usuario.xml"/>
+    <include file="db/migration/changes/07-migration-tb-usuario-has-perfil-usuario.xml"/>
+    <include file="db/migration/changes/08-seed-tb-perfil.xml"/>
+    <include file="db/migration/changes/09-migration-tb-tipo-notificacao.xml"/>
+    <include file="db/migration/changes/10-migration-tb-notificacao.xml"/>
+    <include file="db/migration/changes/11-migration-tb-papel-usuario-doc-autorizacao.xml"/>
+    <include file="db/migration/changes/12-seed-tb-papel-usuario-doc-autorizacao.xml"/>
+    <include file="db/migration/changes/13-migration-tb-tipo-doc-autorizacao.xml"/>
+    <include file="db/migration/changes/14-migration-tb-doc-autorizacao.xml"/>
+    <include file="db/migration/changes/15-migration-tb-tipo-identificacao-empreendimento.xml"/>
+    <include file="db/migration/changes/16-migration-tb-status-empreendimento.xml"/>
+    <include file="db/migration/changes/17-migration-tb-empreendimento.xml"/>
+    <include file="db/migration/changes/18-migration-tb-status-certificado.xml"/>
+    <include file="db/migration/changes/19-migration-tb-forma-pagamento.xml"/>
+    <include file="db/migration/changes/20-migration-tb-certif-recolhi-taxa-repo-florest.xml"/>
+    <include file="db/migration/changes/21-migration-tb-status-analise-documento.xml"/>
+    <include file="db/migration/changes/22-migration-tb-analise-documento.xml"/>
+    <include file="db/migration/changes/23-migration-tb-justificativa-indeferimento.xml"/>
+    <include file="db/migration/changes/24-seed-tb-tipo-notificacao.xml"/>
+    <include file="db/migration/changes/25-seed-tb-tipo-doc-autorizacao.xml"/>
+    <include file="db/migration/changes/26-seed-tb-tipo-identificacao-empreendimento.xml"/>
+    <include file="db/migration/changes/27-seed-tb-status-empreendimento.xml"/>
+    <include file="db/migration/changes/28-seed-tb-status-certificado.xml"/>
+    <include file="db/migration/changes/29-seed-tb-forma-pagamento.xml"/>
+    <include file="db/migration/changes/30-seed-tb-status-analise-documento.xml"/>
+
+    <!--    Auditing migrations    -->
+    <include file="db/migration/changes/aud/00-aud-migration-tb-revinfo.xml"/>
+    <include file="db/migration/changes/aud/01-aud-migration-tb-usuario.xml"/>
+    <include file="db/migration/changes/aud/05-aud-migration-tb-info-pessoal.xml"/>
+    <include file="db/migration/changes/aud/07-aud-migration-tb-usuario-has-perfil-usuario.xml"/>
+    <include file="db/migration/changes/aud/10-aud-migration-tb-notificacao.xml"/>
+    <include file="db/migration/changes/aud/14-aud-migration-tb-doc-autorizacao.xml"/>
+    <include file="db/migration/changes/aud/17-aud-migration-tb-empreendimento.xml"/>
+    <include file="db/migration/changes/aud/20-aud-migration-tb-certif-recolhi-taxa-repo-florest.xml"/>
+    <include file="db/migration/changes/aud/22-aud-migration-tb-analise-documento.xml"/>
+    <include file="db/migration/changes/aud/23-aud-migration-tb-justificativa-indeferimento.xml"/>
+
+</databaseChangeLog>

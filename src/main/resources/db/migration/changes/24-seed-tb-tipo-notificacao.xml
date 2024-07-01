@@ -1,0 +1,24 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<databaseChangeLog
+        xmlns="http://www.liquibase.org/xml/ns/dbchangelog"
+        xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+        xsi:schemaLocation="http://www.liquibase.org/xml/ns/dbchangelog
+                      http://www.liquibase.org/xml/ns/dbchangelog/dbchangelog-4.25.xsd"
+        objectQuotingStrategy="QUOTE_ONLY_RESERVED_WORDS">
+
+    <changeSet id="24" author="admin">
+        <insert schemaName="sedec_sipaflore_mt" tableName="tb_tipo_notificacao">
+            <column name="descricao" value="Informativo"/>
+            <column name="codigo" value="INFORMATIVO"/>
+        </insert>
+        <insert schemaName="sedec_sipaflore_mt" tableName="tb_tipo_notificacao">
+            <column name="descricao" value="Alerta"/>
+            <column name="codigo" value="ALERTA"/>
+        </insert>
+        <insert schemaName="sedec_sipaflore_mt" tableName="tb_tipo_notificacao">
+            <column name="descricao" value="Correção de erro"/>
+            <column name="codigo" value="CORRECAO_DE_ERRO"/>
+        </insert>
+    </changeSet>
+
+</databaseChangeLog>
